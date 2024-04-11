@@ -1,0 +1,188 @@
+html,
+body,
+#root,
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: black;
+}
+
+a {
+  pointer-events: all;
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: 'Inter';
+}
+
+svg {
+  fill: white;
+}
+
+canvas {
+  opacity: 0;
+  touch-action: none;
+  animation: fade-in 5s ease 1s forwards;
+  z-index: 0;
+}
+
+.content {
+  width: 1270px;
+  height: 1280px;
+  border-radius: 0px;
+  touch-action: none;
+}
+
+.wrapper {
+  padding: 0px;
+  transform: scale(1);
+}
+
+.matrix_background {
+  margin: 0;
+  padding: 0;
+  animation: fade-in 5s ease 1s forwards;
+  display: none;
+}
+
+body {
+  background: black;
+}
+
+canvas {
+  display: none;
+  touch-action: none;
+}
+
+.cvfont {
+  font-size: 0.1em;
+  color: white;
+}
+
+#cvpage {
+  display: none;
+}
+
+#name {
+  color: 'white';
+  position: 'absolute';
+  top: 0;
+  left: 0;
+  font-size: 2em;
+  right: 0;
+}
+
+#name_mobile {
+  color: 'white';
+  position: 'absolute';
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  right: 0;
+}
+
+#title {
+  color: 'white';
+  position: 'absolute';
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  right: 0;
+}
+
+#title_mobile {
+  color: 'white';
+  position: 'absolute';
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  right: 0;
+}
+
+.instructions {
+  width: auto;
+  max-width: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: max-width 4s linear;
+  color: #0f0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.audio_button {
+  border-radius: 100%;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: 250px;
+}
+
+.progress-value {
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: #fff;
+  height: 10px;
+  width: 0;
+}
+
+.start-button {
+  position: relative;
+  border-radius: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.start-button img {
+  display: block;
+}
+
+.overlay {
+  display: none;
+}
+
+.instructions_loading {
+  width: auto;
+  max-width: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: max-width 4s linear;
+}
+
+.instructions_loading_text {
+  color: #0f0;
+  font-size: 24px;
+}
