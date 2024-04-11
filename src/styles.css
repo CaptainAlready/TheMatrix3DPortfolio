@@ -59,7 +59,7 @@ body {
 }
 
 canvas {
-  display: none;
+  display: block;
   touch-action: none;
 }
 
@@ -171,7 +171,7 @@ canvas {
 }
 
 .overlay {
-  display: none;
+  display: block;
 }
 
 .instructions_loading {

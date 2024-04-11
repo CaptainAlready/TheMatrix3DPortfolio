@@ -16,6 +16,7 @@ Files: .\Monitor.glb [2.83MB] > Monitor-transformed.glb [153.56KB] (95%)
 import { useGLTF, Html, Bounds, useBounds, PresentationControls } from '@react-three/drei'
 import { useRef } from 'react'
 import { useThree } from '@react-three/fiber'
+import { useEffect } from 'react'
 
 
 useGLTF.preload('/matrixdesk-transformed.glb')
@@ -110,7 +111,14 @@ export function Scene() {
 
   function Monitor(props) {
     const { nodes, materials } = useGLTF('/Monitor-transformed.glb')
-    const isMobile = window.innerWidth < 1200;
+    const isMobile = false;
+    useEffect(() => {
+      if (window.innerWidth < 1200) {
+        isMobile = true;
+      }
+    }
+    )
+
 
     return (
       <group {...props} dispose={null} ref={meshRef}>
@@ -137,8 +145,6 @@ export function Scene() {
 
   function SelectToZoom({ children }) {
     const api = useBounds();
-
-
     return (
       <group onClick={(e) => (e.stopPropagation(), api.refresh(meshRef.current).fit())}
         onPointerMissed={(e) => (api.to({ position: [5, 15, 150], target: [0, 0, 0] }))}>
@@ -156,8 +162,8 @@ export function Scene() {
       snap={{ mass: 10, tension: 100 }} >
       <Bounds damping={1.5} margin={1}>
         <SelectToZoom>
-          <Monitor scale={0.08} rotation={[0, -Math.PI / 2 + 0.03, 0]} position={[0.4, 9.5, 1]} />
           <Matrix_Desk scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
+          <Monitor scale={0.08} rotation={[0, -Math.PI / 2 + 0.03, 0]} position={[0.4, 9.5, 1]} />
         </SelectToZoom>
       </Bounds>
     </PresentationControls>
