@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client'
 import './styles.css'
 import { App } from './App'
 import { MatrixBackground } from './matrix'
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function Overlay() {
   return (
