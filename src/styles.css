@@ -59,7 +59,7 @@ body {
 }
 
 canvas {
-  display: block;
+  display: none;
   touch-action: none;
 }
 
@@ -115,6 +115,7 @@ canvas {
   overflow: hidden;
   transition: max-width 4s linear;
   color: #0f0;
+  background-color: black;
 }
 
 @keyframes fade-in {
@@ -138,22 +139,16 @@ canvas {
 
 .progress {
   background: rgba(255, 255, 255, 0.1);
-  justify-content: flex-start;
+  justify-content: center;
   border-radius: 100px;
   align-items: center;
-  position: relative;
-  padding: 0 5px;
+  position: absolute;
   display: flex;
   height: 40px;
-  width: 250px;
-}
-
-.progress-value {
-  box-shadow: 0 10px 40px -10px #fff;
-  border-radius: 100px;
-  background: #fff;
-  height: 10px;
-  width: 0;
+  width: 65px;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .start-button {
@@ -164,6 +159,7 @@ canvas {
   color: white;
   font-size: 20px;
   cursor: pointer;
+  opacity: 0;
 }
 
 .start-button img {
@@ -171,7 +167,7 @@ canvas {
 }
 
 .overlay {
-  display: block;
+  display: none;
 }
 
 .instructions_loading {

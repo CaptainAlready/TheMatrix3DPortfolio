@@ -18,12 +18,19 @@ Files: matrixdesk-mobile.glb [10.47MB] > TheMatrix3DPortfolio\public\matrixdesk-
 
 import { useGLTF, Html, Bounds, useBounds, PresentationControls } from '@react-three/drei'
 import { useRef } from 'react'
-import { useThree } from '@react-three/fiber'
+const isMobile = window.innerWidth < 1200;
+
+if (isMobile) {
+  useGLTF.preload('/matrixdesk-mobile-transformed.glb')
+}
+else {
+  useGLTF.preload('/matrixdesk-transformed.glb')
+}
+useGLTF.preload('/Monitor-transformed.glb')
+
 
 export function Scene() {
   const meshRef = useRef();
-  const isMobile = window.innerWidth < 1200;
-
   function Matrix_Desk(props) {
     const { nodes, materials } = useGLTF('/matrixdesk-transformed.glb')
     return (
@@ -197,4 +204,3 @@ export function Scene() {
     )
   }
 }
-
