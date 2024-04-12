@@ -10,7 +10,7 @@ A personal 3D web Portfolio built with **React.js** and **Three.js** (WebGL), in
 
 ## TODO
 
-- [ ] Optimize on Mobile (Currently runs on Desktop)
+- [x] Optimize on Mobile (Currently runs on Desktop)
 - [ ] Refine README.md
 
 
