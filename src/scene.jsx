@@ -20,6 +20,8 @@ import { useGLTF, Html, Bounds, useBounds, PresentationControls } from '@react-t
 import { useRef } from 'react'
 const isMobile = window.innerWidth < 1200;
 
+
+
 if (isMobile) {
   useGLTF.preload('/matrixdesk-mobile-transformed.glb')
 }
@@ -149,9 +151,9 @@ export function Scene() {
               </div>
             </Html>
           ) : (
-            <Html scale={1} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[1.2, 25, -4.7]} transform occlude>
+            <Html scale={2.5} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[25.3, 26, -28.6]} transform >
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
-                <iframe className="iframe_monitor" width={"1300px"} height={"1320px"} src='https://captainalready.github.io/Portfolio2D' />
+                <iframe className="iframe_monitor" width={"510px"} height={"520px"} src='https://captainalready.github.io/Portfolio2D' />
               </div>
             </Html>
           )
@@ -179,9 +181,9 @@ export function Scene() {
         global
         config={{ mass: 10, tension: 30 }}
         snap={{ mass: 10, tension: 100 }}
-        azimuth={[0,0.9]} 
-        polar={[0,0.9]}>
-        
+        azimuth={[0, 0.9]}
+        polar={[0, 0.9]}>
+
         <Bounds damping={1.5} margin={1}>
           <SelectToZoom>
             <Matrix_DeskMobile scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
@@ -196,7 +198,9 @@ export function Scene() {
       <PresentationControls
         global
         config={{ mass: 10, tension: 30 }}
-        snap={{ mass: 10, tension: 100 }} >
+        snap={{ mass: 10, tension: 100 }}
+        azimuth={[0, 0.9]}
+        polar={[0, 0.9]}>
         <Bounds damping={1.5} margin={1}>
           <SelectToZoom>
             <Matrix_Desk scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
