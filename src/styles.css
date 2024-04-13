@@ -182,3 +182,7 @@ canvas {
   color: #0f0;
   font-size: 24px;
 }
+
+.iframe_monitor {
+  border-radius: 1%;
+}

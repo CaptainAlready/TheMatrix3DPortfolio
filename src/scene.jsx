@@ -151,7 +151,7 @@ export function Scene() {
               </div>
             </Html>
           ) : (
-            <Html scale={2.5} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[25.3, 26, -28.6]} transform >
+            <Html scale={2.5} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[25.4, 26, -28.7]} transform >
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                 <iframe className="iframe_monitor" width={"510px"} height={"520px"} src='https://captainalready.github.io/Portfolio2D' />
               </div>
