@@ -17,7 +17,7 @@ Files: matrixdesk-mobile.glb [10.47MB] > TheMatrix3DPortfolio\public\matrixdesk-
 
 
 import { useGLTF, Html, Bounds, useBounds, PresentationControls } from '@react-three/drei'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 const isMobile = window.innerWidth < 1200;
 
 
@@ -33,6 +33,8 @@ useGLTF.preload('/Monitor-transformed.glb')
 
 export function Scene() {
   const meshRef = useRef();
+  const [zoom, setZoom] = useState(false);
+
   function Matrix_Desk(props) {
     const { nodes, materials } = useGLTF('/matrixdesk-transformed.glb')
     return (
@@ -166,14 +168,23 @@ export function Scene() {
 
   function SelectToZoom({ children }) {
     const api = useBounds();
-    return (
-      <group onClick={(e) => (e.stopPropagation(), api.refresh(meshRef.current).fit())}
-        onPointerMissed={(e) => (api.to({ position: [5, 15, 150], target: [0, 0, 0] }))}>
-        {children}
-      </group>
-    )
-  }
 
+    if (!zoom) {
+      return (
+        <group onClick={(e) => (setZoom(true), e.stopPropagation(), api.refresh(meshRef.current).fit())}>
+          {children}
+        </group>
+      )
+    }
+    else {
+      return (
+        <group onClick={(e) => (setZoom(false), api.to({ position: [0, 40, 150], target: [0, 0, 0] }))}
+          onPointerMissed={(e) => (setZoom(false), api.to({ position: [0, 40, 150], target: [0, 0, 0] }))}>
+          {children}
+        </group>
+      )
+    }
+  }
 
   if (isMobile) {
     return (
@@ -184,10 +195,10 @@ export function Scene() {
         azimuth={[0, 0.9]}
         polar={[0, 0.9]}>
 
-        <Bounds damping={1.5} margin={1}>
+        <Bounds damping={1.5} margin={0.71}>
           <SelectToZoom>
             <Matrix_DeskMobile scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
-            <Monitor scale={0.08} rotation={[0, -Math.PI / 2 + 0.03, 0]} position={[0.4, 9.5, 1]} />
+            <Monitor scale={0.08} rotation={[-0.05, -Math.PI / 2, 0]} position={[0.4, 9.5, 1]} />
           </SelectToZoom>
         </Bounds>
       </PresentationControls>
@@ -201,10 +212,10 @@ export function Scene() {
         snap={{ mass: 10, tension: 100 }}
         azimuth={[0, 0.9]}
         polar={[0, 0.9]}>
-        <Bounds damping={1.5} margin={1}>
+        <Bounds damping={1.5} margin={0.7}>
           <SelectToZoom>
             <Matrix_Desk scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
-            <Monitor scale={0.08} rotation={[0, -Math.PI / 2 + 0.03, 0]} position={[0.4, 9.5, 1]} />
+            <Monitor scale={0.08} rotation={[-0.05, -Math.PI / 2, 0]} position={[0.4, 9.5, 1]} />
           </SelectToZoom>
         </Bounds>
       </PresentationControls>
