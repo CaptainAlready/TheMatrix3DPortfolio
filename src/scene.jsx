@@ -195,7 +195,7 @@ export function Scene() {
         azimuth={[0, 0.9]}
         polar={[0, 0.9]}>
 
-        <Bounds damping={1.5} margin={0.71}>
+        <Bounds damping={1.5} margin={0.725}>
           <SelectToZoom>
             <Matrix_DeskMobile scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
             <Monitor scale={0.08} rotation={[-0.05, -Math.PI / 2, 0]} position={[0.4, 9.5, 1]} />
