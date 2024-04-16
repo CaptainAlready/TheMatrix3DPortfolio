@@ -152,7 +152,7 @@ export function Scene({ zoom, setZoom }) {
               </div>
             </Html>
           ) : (
-            <Html scale={1} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[1.55, 25.8, -5]} transform >
+            <Html scale={1} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[1.55, 26, -5]} transform >
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                 <iframe className="iframe_monitor" width={"1270px"} height={"1300px"} src='https://captainalready.github.io/Portfolio2D' />
               </div>
