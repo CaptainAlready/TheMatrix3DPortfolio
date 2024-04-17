@@ -31,8 +31,9 @@ else {
 useGLTF.preload('/Monitor-transformed.glb')
 
 
-export function Scene({ zoom, setZoom }) {
+export function Scene() {
   const meshRef = useRef();
+  const [zoom, setZoom] = useState(false);
 
   function Matrix_Desk(props) {
     const { nodes, materials } = useGLTF('/matrixdesk-transformed.glb')
@@ -152,9 +153,9 @@ export function Scene({ zoom, setZoom }) {
               </div>
             </Html>
           ) : (
-            <Html scale={1} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[1.55, 26, -5]} transform >
+            <Html scale={2.5} className="content" rotation-x={-Math.PI / 2} rotation-z={Math.PI / 2} position={[25.4, 26, -28.7]} transform >
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
-                <iframe className="iframe_monitor" width={"1270px"} height={"1300px"} src='https://captainalready.github.io/Portfolio2D' />
+                <iframe className="iframe_monitor" width={"510px"} height={"520px"} src='https://captainalready.github.io/Portfolio2D' />
               </div>
             </Html>
           )
@@ -194,7 +195,7 @@ export function Scene({ zoom, setZoom }) {
         azimuth={[0, 0.9]}
         polar={[0, 0.9]}>
 
-        <Bounds damping={1.5} margin={0.8}>
+        <Bounds damping={1.5} margin={0.725}>
           <SelectToZoom>
             <Matrix_DeskMobile scale={15} position={[3, -15, 5.2]} rotation={[0, Math.PI / 2, 0.1]} />
             <Monitor scale={0.08} rotation={[-0.05, -Math.PI / 2, 0]} position={[0.4, 9.5, 1]} />
