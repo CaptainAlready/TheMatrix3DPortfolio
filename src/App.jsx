@@ -25,6 +25,7 @@ function toggleAudio() {
 export function App() {
 
   const [start, setStart] = useState(false);
+  const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
     if (start) {
@@ -33,6 +34,30 @@ export function App() {
       audio.play();
     }
   }, [start]);
+
+  useEffect(() => {
+    if (zoom) {
+      const timeout = setTimeout(() => {
+        const fadeOutInterval = setInterval(() => {
+          audio.volume = Math.max(0, audio.volume - 0.01);
+          if (audio.volume <= 0.03) {
+            clearInterval(fadeOutInterval);
+          }
+        }, 100);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    } else {
+      const timeout = setTimeout(() => {
+        const fadeOutInterval = setInterval(() => {
+          audio.volume = Math.min(1, audio.volume + 0.01);
+          if (audio.volume >= 0.2) {
+            clearInterval(fadeOutInterval);
+          }
+        }, 100);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [zoom]);
 
   return (
     <>
@@ -52,8 +77,8 @@ export function App() {
 
 
             {isMobile ?
-              (<Scene center scale={window.innerWidth / 600} />)
-              : (<Scene scale={window.innerWidth / 1800} />)
+              (<Scene zoom={zoom} setZoom={setZoom} center scale={window.innerWidth / 600} />)
+              : (<Scene zoom={zoom} setZoom={setZoom} scale={window.innerWidth / 1800} />)
             }
 
             <Html center position-y={-30}>
