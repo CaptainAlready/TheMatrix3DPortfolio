@@ -1,8 +1,9 @@
 ## TheMatrix3DPortfolio
 
 <p align="center">
-<img src="https://github.com/CaptainAlready/TheMatrix3DPortfolio/assets/58816142/7127eeb6-4cca-4c9b-b53d-c7e869ecbcb4" alt="Alt Text" style="width: 400px; height: auto;">
+<img src="https://github.com/CaptainAlready/TheMatrix3DPortfolio/assets/58816142/b1b4149b-3f27-4798-b20f-ed34af65bc3f" alt="Alt Text" style="width: 500px; height: auto;">
 </p>
+
 
 ## Description
 
