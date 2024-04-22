@@ -72,8 +72,8 @@ export function App() {
               </div>
             </Html>
 
-            <spotLight position={[0, 25, 0]} angle={0.3} penumbra={1} castShadow intensity={2.5} shadow-bias={-0.0001} />
-            <ambientLight intensity={0.8} color={0xe8dbf1} />
+            <spotLight color={0xffca7b} position={[20, 50, 50]} angle={0.15} penumbra={1} castShadow intensity={0.5} />
+            <ambientLight intensity={0.3} color={0xe8dbf1} />
 
 
             {isMobile ?
