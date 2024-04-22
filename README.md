@@ -7,10 +7,16 @@
 ## Description
 
 A personal 3D web Portfolio built with **React.js** and **Three.js** (WebGL), inspired by the desk scene of the movie **The Matrix**.
+<br/>
+This project is divided into two parts: 
+* The 3D Rendered Website, built using React.js and Three.js.
+* An internal iframe pointing to my <a href="https://github.com/CaptainAlready/Portfolio2D">portfolio2D website</a>. 
 
-## TODO
+## Run
 
-- [x] Optimize on Mobile (Currently runs on Desktop)
-- [ ] Refine README.md
+To run TheMatrix3DPortfolio on your local machine, follow these steps:
 
+1. > Clone the project.
+2. > npm install
+3. > npm run start
 
