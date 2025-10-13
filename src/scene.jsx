@@ -177,8 +177,15 @@ export function Scene({ zoom, setZoom }) {
     }
     else {
       return (
-        <group onClick={(e) => (setZoom(false), api.to({ position: [0, 40, 150], target: [0, 0, 0] }))}
-          onPointerMissed={(e) => (setZoom(false), api.to({ position: [0, 40, 150], target: [0, 0, 0] }))}>
+        <group
+          onClick={(e) => (
+            setZoom(false),
+            api.refresh().to({ position: [0, 40, 150], target: [0, 0, 0] })
+          )}
+          onPointerMissed={(e) => (
+            setZoom(false),
+            api.refresh().to({ position: [0, 40, 150], target: [0, 0, 0] })
+          )}>
           {children}
         </group>
       )

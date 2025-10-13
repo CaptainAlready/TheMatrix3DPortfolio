@@ -1,12 +1,21 @@
+import { useEffect } from 'react'
 import { useProgress, Html } from '@react-three/drei'
 
 export const LoadingScreen = ({ started, onStarted }) => {
     const { progress } = useProgress();
+    useEffect(() => {
+        if (progress === 100) {
+            const instructionsLoading = document.querySelector('.instructions_loading');
+            const startButton = document.querySelector('.start-button');
+            if (instructionsLoading) {
+                instructionsLoading.style.maxWidth = '100%';
+            }
+            if (startButton) {
+                startButton.style.opacity = 1;
+            }
+        }
+    }, [progress]);
 
-    if (progress === 100) {
-        document.querySelector('.instructions_loading').style.maxWidth = '100%';
-        document.querySelector('.start-button').style.opacity = 1;
-    }
 
     return (
         <Html center>
@@ -22,15 +31,23 @@ export const LoadingScreen = ({ started, onStarted }) => {
                     onClick={() => {
                         setTimeout(() => {
                             const morbidElement = document.querySelector('.instructions');
-                            morbidElement.style.maxWidth = '100%';
+                            if (morbidElement) {
+                                morbidElement.style.maxWidth = '100%';
+                            }
                         }, 4000);
                         onStarted();
-                        document.querySelector('.start-button').style.display = 'none';
-                        document.querySelector('.progress').style.display = 'none';
-                        document.querySelector('.instructions_loading').style.display = 'none';
-                        document.querySelector('.instructions_loading_text').style.display = 'none';
-                        document.querySelector('.overlay').style.display = 'block';
-                        document.querySelector('canvas').style.display = 'block';
+                        const startBtn = document.querySelector('.start-button');
+                        const progressWrapper = document.querySelector('.progress');
+                        const instructionsLoading = document.querySelector('.instructions_loading');
+                        const instructionsLoadingText = document.querySelector('.instructions_loading_text');
+                        const overlay = document.querySelector('.overlay');
+                        const canvas = document.querySelector('canvas');
+                        if (startBtn) startBtn.style.display = 'none';
+                        if (progressWrapper) progressWrapper.style.display = 'none';
+                        if (instructionsLoading) instructionsLoading.style.display = 'none';
+                        if (instructionsLoadingText) instructionsLoadingText.style.display = 'none';
+                        if (overlay) overlay.style.display = 'block';
+                        if (canvas) canvas.style.display = 'block';
 
 
                     }}
@@ -40,4 +57,3 @@ export const LoadingScreen = ({ started, onStarted }) => {
         </Html>
     )
 }
-

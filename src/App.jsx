@@ -59,6 +59,26 @@ export function App() {
     }
   }, [zoom]);
 
+  useEffect(() => {
+    const instructionsElement = document.querySelector('.instructions');
+    if (!instructionsElement) return;
+
+    if (zoom) {
+      instructionsElement.style.opacity = '0';
+      instructionsElement.style.maxWidth = '0%';
+      instructionsElement.style.pointerEvents = 'none';
+    } else {
+      instructionsElement.style.pointerEvents = 'auto';
+      instructionsElement.style.opacity = '0';
+      instructionsElement.style.maxWidth = '0%';
+      const animationFrame = requestAnimationFrame(() => {
+        instructionsElement.style.opacity = '1';
+        instructionsElement.style.maxWidth = '100%';
+      });
+      return () => cancelAnimationFrame(animationFrame);
+    }
+  }, [zoom]);
+
   return (
     <>
       <Canvas shadows camera={{ position: [0, 40, 150], fov: 30 }} >
@@ -67,7 +87,7 @@ export function App() {
             <Html center position-y={30}>
               <div textalign='center' align='center'>
                 <h1 fontFamily='monospace' id={isMobile ? 'name_mobile' : 'name'}> Panos Kapetanidis</h1>
-                <p fontFamily='monospace' id={isMobile ? 'title_mobile' : 'title'}>Computer Engineer</p>
+                <p fontFamily='monospace' id={isMobile ? 'title_mobile' : 'title'}>ML Engineer</p>
                 <input type='button' className="audio_button" value={"🔊"} onClick={toggleAudio}></input>
               </div>
             </Html>
@@ -103,5 +123,4 @@ export function App() {
     </>
   );
 }
-
 

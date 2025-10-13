@@ -45,6 +45,9 @@ canvas {
 .wrapper {
   padding: 0px;
   transform: scale(1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .matrix_background {
@@ -113,7 +116,9 @@ canvas {
   max-width: 0%;
   white-space: nowrap;
   overflow: hidden;
-  transition: max-width 4s linear;
+  opacity: 1;
+  pointer-events: auto;
+  transition: max-width 4s linear, opacity 0.4s ease;
   color: #0f0;
   background-color: black;
 }
@@ -181,9 +186,4 @@ canvas {
 .instructions_loading_text {
   color: #0f0;
   font-size: 24px;
-}
-
-.iframe_monitor {
-  border-radius: 1%;
-  border-color: black;
 }
